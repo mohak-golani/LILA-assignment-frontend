@@ -7,7 +7,7 @@ const TopNav: React.FC = () => {
       <div className="top-nav-left">
         <div className="logo-section">
           <div className="logo-icon"></div>
-          <div className="logo-text">LILA BLACK</div>
+          <div className="logo-text">LILA</div>
         </div>
         <div className="dashboard-title">
           DASHBOARD

@@ -123,7 +123,7 @@ function AppContent() {
     return (
       <div className="app loading">
         <div className="loading-message">
-          <h2>🎮 Loading LILA BLACK Data...</h2>
+          <h2>🎮 Loading Data...</h2>
           <p>Fetching matches from backend...</p>
         </div>
       </div>
@@ -223,7 +223,7 @@ function AppContent() {
           </div>
         ) : (
           <div className="welcome-message">
-            <h3>👋 Welcome to LILA BLACK</h3>
+            <h3>👋 Welcome to LILA DASHBOARD</h3>
             <p>Select a match from the left sidebar to start exploring!</p>
           </div>
         )}
