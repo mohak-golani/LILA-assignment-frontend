@@ -1,0 +1,210 @@
+/* Full Screen Dashboard Layout Resets & Variables */
+
+:root {
+  /* Colors */
+  --bg-color: #0c0c0c;
+  --panel-bg: #161616;
+  --panel-bg-hover: #222222;
+  --border-color: #2a2a2a;
+  
+  --primary-accent: #e95b10;
+  --primary-accent-hover: #fb6a1e;
+  
+  --text-main: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  
+  --status-stable: #4CAF50;
+  --status-alert: #d32f2f;
+  --status-info: #2196F3;
+  
+  /* Metrics */
+  --header-height: 60px;
+  --sidebar-left-width: 260px;
+  --sidebar-right-width: 320px;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  overflow: hidden; /* Prevent body scrolling in a dashboard layout */
+}
+
+/* Base App Layout */
+.app-container {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "nav main aside";
+  grid-template-columns: var(--sidebar-left-width) 1fr var(--sidebar-right-width);
+  grid-template-rows: var(--header-height) 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Utilities */
+.panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Placeholder for remaining styles that might be needed temporarily */
+.main-content-area {
+  grid-area: main;
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.visualization-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.minimap-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.minimap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.minimap-title-group h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.instance-id {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.header-stats {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.header-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header-stat .stat-label {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header-stat .stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.header-stat .stat-value.highlight {
+  color: var(--status-stable);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  background-color: #222;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: #333;
+  color: var(--text-main);
+}
+
+.map-wrapper {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 2rem;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading-message h2 {
+  color: var(--status-stable);
+  margin-bottom: 1rem;
+}
