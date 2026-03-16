@@ -100,7 +100,7 @@ export const apiService = {
     if (mapId) params.append('map_id', mapId);
     if (date) params.append('date', date);
 
-    const response = await api.get(`/api/matches?${params}`);
+    const response = await api.get(`${BASE_URL}/api/matches?${params}`);
     return response.data;
   },
 
@@ -110,7 +110,7 @@ export const apiService = {
     page: number = 1,
     limit: number = 5000
   ): Promise<EventsResponse> {
-    const response = await api.get(`/api/events/${matchId}`, {
+    const response = await api.get(`${BASE_URL}/api/events/${matchId}`, {
       params: { page, limit }
     });
     return response.data;
@@ -121,7 +121,7 @@ export const apiService = {
     mapId: string,
     type: 'kills' | 'deaths' | 'traffic' = 'kills'
   ): Promise<HeatmapData> {
-    const response = await api.get(`/api/heatmap/${mapId}`, {
+    const response = await api.get(`${BASE_URL}/api/heatmap/${mapId}`, {
       params: { type }
     });
     return response.data;
@@ -129,19 +129,19 @@ export const apiService = {
 
   // Get map configurations
   async getMapConfigs(): Promise<Record<string, MapConfig>> {
-    const response = await api.get('/api/maps');
+    const response = await api.get(`${BASE_URL}/api/maps`);
     return response.data;
   },
 
   // Get all players in a match
   async getMatchPlayers(matchId: string): Promise<{ match_id: string; players: PlayerInfo[]; total_players: number }> {
-    const response = await api.get(`/api/players/${matchId}`);
+    const response = await api.get(`${BASE_URL}/api/players/${matchId}`);
     return response.data;
   },
 
   // Get a specific player's journey
   async getPlayerJourney(matchId: string, userId: string): Promise<PlayerJourney> {
-    const response = await api.get(`/api/journey/${matchId}/${userId}`);
+    const response = await api.get(`${BASE_URL}/api/journey/${matchId}/${userId}`);
     return response.data;
   },
 
@@ -151,13 +151,13 @@ export const apiService = {
     includeBots: boolean = true,
     includePlayers: boolean = true
   ): Promise<AllJourneysResponse> {
-    const response = await api.get(`/api/journeys/${matchId}?include_bots=${includeBots}&include_players=${includePlayers}`);
+    const response = await api.get(`${BASE_URL}/api/journeys/${matchId}?include_bots=${includeBots}&include_players=${includePlayers}`);
     return response.data;
   },
 
   // Health check
   async healthCheck(): Promise<any> {
-    const response = await api.get('/health');
+    const response = await api.get(`${BASE_URL}/health`);
     return response.data;
   }
 };
