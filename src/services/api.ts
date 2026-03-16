@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = "https://lila-backend-93kb.onrender.com/api/matches";
 
 const api = axios.create({
   baseURL: BASE_URL,
